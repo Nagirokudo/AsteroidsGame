@@ -10,18 +10,36 @@ public void draw()
 {
   //your code here
   background(0, 0, 128);
+  bob.move();
   bob.show();
+}
+
+public void keyPressed()
+{
+  if (key == 'w')
+  {
+    bob.rotate(5);
+  }
+  else if (key == 's')
+  {
+    bob.rotate(-5);
+  }
+  if (key == ' ')
+  {
+    bob.accelerate(0.025);
+  }
+  if (key == 'a')
+  {
+    bob.setDirectionX(0);
+    bob.setDirectionY(0);
+  }
+  
+  bob.setPointDirection((int)(Math.random()*360));
+
 }
 class SpaceShip extends Floater  
 {   
     //your code here
-  private int corners; 
-  private int[] xCorners;   
-  private int[] yCorners;   
-  private int myColor;  
-  private double myCenterX, myCenterY;   
-  private double myDirectionX, myDirectionY;   
-  private double myPointDirection;
 
   public void setX(int x) {myCenterX = x;}  
   public int getX() {return (int)myCenterX;}  
@@ -37,7 +55,7 @@ class SpaceShip extends Floater
   SpaceShip()
   {
     corners= 8;
-    int[] xS = {0, 2, 7, 2, 0, -2, -7, -2};
+    int[] xS = {0, 2, 7, 2, 0, -2, -14, -2};
     int[] yS = {7, 4, 0, -4, -7, -4, 0, 4};
     xCorners = xS;
     yCorners= yS;
@@ -49,16 +67,6 @@ class SpaceShip extends Floater
     myColor = color(255, 153, 204);
     
   }
-/*
-  public void move()
-  {
-    myCenterX = 250;
-    myCenterY = 250;
-    myDirectionX = 2 + 0.064;
-    myDirectionY = 3 + 0.076;
-    myPointDirection = -50;
-  }
-*/
     
 }
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
