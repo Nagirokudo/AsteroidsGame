@@ -16,25 +16,31 @@ public void draw()
 
 public void keyPressed()
 {
+  // rotate
   if (key == 'w')
   {
-    bob.rotate(5);
+    bob.rotate(10);
   }
   else if (key == 's')
   {
-    bob.rotate(-5);
+    bob.rotate(-10);
   }
+  //accelerate
   if (key == ' ')
   {
-    bob.accelerate(0.025);
+    bob.accelerate(1);
   }
-  if (key == 'a')
+  //hyperspace
+  if (key == 'l')
   {
     bob.setDirectionX(0);
     bob.setDirectionY(0);
+    bob.setX((int)(Math.random()*500));
+    bob.setY((int)(Math.random()*500));
+    bob.setPointDirection((int)(Math.random()*360));
   }
   
-  bob.setPointDirection((int)(Math.random()*360));
+  //bob.setPointDirection((int)(Math.random()*360));
 
 }
 class SpaceShip extends Floater  
@@ -68,6 +74,12 @@ class SpaceShip extends Floater
     
   }
     
+}
+
+class Star 
+{
+  private int x;
+  private int y;
 }
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
