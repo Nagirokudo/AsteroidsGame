@@ -4,7 +4,7 @@ Star[] night = new Star[500];
 public void setup() 
 {
   //your code here
-  size(800, 800);
+  size(700, 700);
   for (int i = 0; i < night.length; i++)
   {
     night[i] = new Star();
