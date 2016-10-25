@@ -1,15 +1,25 @@
 //your variable declarations here
 SpaceShip bob;
+Star[] night = new Star[500];
 public void setup() 
 {
   //your code here
-  size(500,500);
+  size(1000, 1200);
+  for (int i = 0; i < night.length; i++)
+  {
+    night[i] = new Star();
+  }
   bob = new SpaceShip();
 }
 public void draw() 
 {
   //your code here
   background(0, 0, 128);
+  for (int i = 0; i < night.length; i++)
+  {
+    noStroke();
+    night[i].show();
+  }
   bob.move();
   bob.show();
 }
@@ -35,14 +45,33 @@ public void keyPressed()
   {
     bob.setDirectionX(0);
     bob.setDirectionY(0);
-    bob.setX((int)(Math.random()*500));
-    bob.setY((int)(Math.random()*500));
+    bob.setX((int)(Math.random()*width));
+    bob.setY((int)(Math.random()*height));
     bob.setPointDirection((int)(Math.random()*360));
   }
   
   //bob.setPointDirection((int)(Math.random()*360));
 
 }
+
+class Star 
+{
+  private int x;
+  private int y;
+
+  public Star()
+  {
+    x = (int)(Math.random()*width);
+    y = (int)(Math.random()*height);
+  }
+
+  public void show()
+  {
+    fill(255, 255, 255);
+    ellipse(x, y, 2, 2);
+  }
+}
+
 class SpaceShip extends Floater  
 {   
     //your code here
@@ -76,11 +105,7 @@ class SpaceShip extends Floater
     
 }
 
-class Star 
-{
-  private int x;
-  private int y;
-}
+
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
   protected int corners;  //the number of corners, a triangular floater has 3   
