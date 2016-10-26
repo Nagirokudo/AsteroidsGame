@@ -14,7 +14,7 @@ public void setup()
 public void draw() 
 {
   //your code here
-  background(0, 0, 128);
+  background(0, 0, 0);
   for (int i = 0; i < night.length; i++)
   {
     noStroke();
@@ -94,14 +94,16 @@ class SpaceShip extends Floater
     int[] yS = {7, 4, 0, -4, -7, -4, 0, 4};
     xCorners = xS;
     yCorners= yS;
-    myCenterX = 250;
-    myCenterY = 250;
+    myCenterX = width/2;
+    myCenterY = height/2;
     myDirectionX = 0;
     myDirectionY = 0;
     myPointDirection = 0;
     myColor = color(255, 153, 204);
     
   }
+
+ 
     
 }
 
