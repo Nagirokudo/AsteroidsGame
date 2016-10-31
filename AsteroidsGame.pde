@@ -1,5 +1,6 @@
 //your variable declarations here
 SpaceShip bob;
+Asteroid caspia;
 Star[] night = new Star[500];
 public void setup() 
 {
@@ -22,6 +23,8 @@ public void draw()
   }
   bob.move();
   bob.show();
+  caspia.rotate(caspia.getSpinS());
+
 }
 
 public void keyPressed()
@@ -50,8 +53,6 @@ public void keyPressed()
     bob.setPointDirection((int)(Math.random()*360));
   }
   
-  //bob.setPointDirection((int)(Math.random()*360));
-
 }
 
 class Star 
@@ -102,9 +103,35 @@ class SpaceShip extends Floater
     myColor = color(255, 153, 204);
     
   }
+   
+}
 
- 
-    
+class Asteroid extends Floater
+{
+  
+  private int spinS;
+
+
+  public void setX(int x) {myCenterX = x;}  
+  public int getX() {return (int)myCenterX;}  
+  public void setY(int y) {myCenterY = y;}  
+  public int getY() {return (int)myCenterY;}
+  public void setDirectionX(double x) {myDirectionX = x;}  
+  public double getDirectionX() {return myDirectionX;}  
+  public void setDirectionY(double y) {myDirectionY = y;} 
+  public double getDirectionY() {return myDirectionY;}
+  public void setPointDirection(int degrees) {myPointDirection = degrees;}  
+  public double getPointDirection() {return myPointDirection;}
+
+  public Asteroid()
+  {
+    spinS = (int)(Math.random()*10-5);
+  } 
+
+  public void setSpinS(int x) {spinS = x;}
+  public int getSpinS() {return spinS;}
+
+
 }
 
 
@@ -153,7 +180,7 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
     {     
       myCenterX = 0;    
     }    
-    else if (myCenterX<0)
+    else if (myCenterX <0)
     {     
       myCenterX = width;    
     }    
