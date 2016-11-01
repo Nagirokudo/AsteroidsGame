@@ -1,6 +1,6 @@
 //your variable declarations here
 SpaceShip bob;
-Asteroid caspia;
+Asteroids[] caspia = new Asteroids[400];
 Star[] night = new Star[500];
 public void setup() 
 {
@@ -10,6 +10,12 @@ public void setup()
   {
     night[i] = new Star();
   }
+
+  for (int i = 0; i < caspia.length; i++)
+  {
+    caspia[i] = new Asteroids();
+  }
+
   bob = new SpaceShip();
 }
 public void draw() 
@@ -21,9 +27,14 @@ public void draw()
     noStroke();
     night[i].show();
   }
+  for (int i = 0; i < caspia.length; i++)
+  {
+    noStroke();
+    caspia[i].show();
+  }
   bob.move();
   bob.show();
-  caspia.rotate(caspia.getSpinS());
+  caspia.move();
 
 }
 
@@ -106,7 +117,7 @@ class SpaceShip extends Floater
    
 }
 
-class Asteroid extends Floater
+class Asteroids extends Floater
 {
   
   private int spinS;
@@ -123,13 +134,31 @@ class Asteroid extends Floater
   public void setPointDirection(int degrees) {myPointDirection = degrees;}  
   public double getPointDirection() {return myPointDirection;}
 
-  public Asteroid()
+  public Asteroids()
   {
     spinS = (int)(Math.random()*10-5);
-  } 
 
-  public void setSpinS(int x) {spinS = x;}
-  public int getSpinS() {return spinS;}
+    corners = 7;
+    int[] xS = {0, 5, 0, -5, -10, -10, -5};
+    int[] yS = {6, 0, -6, 0, -5, 5, 0};
+    xCorners = xS;
+    yCorners= yS;
+    myCenterX = (int)(Math.random()*width);
+    myCenterY = (int)(Math.random()*height);
+    myDirectionX = 0;
+    myDirectionY = 0;
+    myPointDirection = 0;
+    myColor = color(0, 45, 179);
+
+  } 
+  public move()
+  {
+    rotate(spinS);
+    super.move();
+  }
+
+  //public void setSpinS(int x) {spinS = x;}
+  //public int getSpinS() {return spinS;}
 
 
 }
