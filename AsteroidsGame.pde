@@ -1,6 +1,6 @@
 //your variable declarations here
 SpaceShip bob;
-Asteroids[] caspia = new Asteroids[400];
+Asteroids[] caspia = new Asteroids[10];
 Star[] night = new Star[500];
 public void setup() 
 {
@@ -31,10 +31,11 @@ public void draw()
   {
     noStroke();
     caspia[i].show();
+    caspia[i].move();
   }
   bob.move();
   bob.show();
-  caspia.move();
+  
 
 }
 
@@ -145,21 +146,17 @@ class Asteroids extends Floater
     yCorners= yS;
     myCenterX = (int)(Math.random()*width);
     myCenterY = (int)(Math.random()*height);
-    myDirectionX = 0;
-    myDirectionY = 0;
-    myPointDirection = 0;
+    myDirectionX = (int)(Math.random()*5);
+    myDirectionY = (int)(Math.random()*5);
+    myPointDirection = (int)(Math.random()*360);
     myColor = color(0, 45, 179);
 
   } 
-  public move()
+  public void move()
   {
     rotate(spinS);
     super.move();
   }
-
-  //public void setSpinS(int x) {spinS = x;}
-  //public int getSpinS() {return spinS;}
-
 
 }
 
