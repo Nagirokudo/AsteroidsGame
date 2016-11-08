@@ -1,7 +1,9 @@
 //your variable declarations here
 SpaceShip bob;
-Asteroids[] caspia = new Asteroids[10];
+ArrayList <Asteroids> caspia = new ArrayList <Asteroids>();
+Asteroids chou = new Asteroids(1);
 Star[] night = new Star[500];
+
 public void setup() 
 {
   //your code here
@@ -10,17 +12,21 @@ public void setup()
   {
     night[i] = new Star();
   }
-
+  caspia. add(chou);
+  caspia. add(new Asteroids(2));
+  /*
   for (int i = 0; i < caspia.length; i++)
   {
     caspia[i] = new Asteroids();
   }
-
+  */
   bob = new SpaceShip();
 }
+
 public void draw() 
 {
   //your code here
+
   background(0, 0, 0);
   for (int i = 0; i < night.length; i++)
   {
@@ -35,8 +41,6 @@ public void draw()
   }
   bob.move();
   bob.show();
-  
-
 }
 
 public void keyPressed()
