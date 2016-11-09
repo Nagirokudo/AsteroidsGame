@@ -1,19 +1,27 @@
 //your variable declarations here
 SpaceShip bob;
-ArrayList <Asteroids> caspia = new ArrayList <Asteroids>();
-Asteroids chou = new Asteroids(1);
+ArrayList <Asteroids> caspia;
+Asteroids chou;
 Star[] night = new Star[500];
 
 public void setup() 
 {
   //your code here
   size(700, 700);
+
+  caspia = new ArrayList <Asteroids>();
+  chou = new Asteroids();
+
   for (int i = 0; i < night.length; i++)
   {
     night[i] = new Star();
   }
-  caspia. add(chou);
-  caspia. add(new Asteroids(2));
+  for(int i = 0; i < 10; i++)
+  {
+    caspia.add(i, new Asteroids());
+  }
+  //caspia. add(chou);
+  //caspia. add(new Asteroids(2));
   /*
   for (int i = 0; i < caspia.length; i++)
   {
@@ -33,12 +41,15 @@ public void draw()
     noStroke();
     night[i].show();
   }
-  for (int i = 0; i < caspia.length; i++)
+  //chou.show();
+  //chou.move();
+  for (int i = 0; i < caspia.size(); i++)
   {
     noStroke();
-    caspia[i].show();
-    caspia[i].move();
+    caspia.get(i).move();
+    caspia.get(i).show();
   }
+
   bob.move();
   bob.show();
 }
@@ -153,7 +164,7 @@ class Asteroids extends Floater
     myDirectionX = (int)(Math.random()*10+1);
     myDirectionY = (int)(Math.random()*10+1);
     myPointDirection = (int)(Math.random()*360);
-    myColor = color(0, 45, 179);
+    myColor = color(77, 255, 77);
 
   } 
   public void move()
@@ -164,6 +175,26 @@ class Asteroids extends Floater
 
 }
 
+class Bulllet extends SpaceShip
+{
+  private int fire;
+  public void setX(int x) {myCenterX = x;}  
+  public int getX() {return (int)myCenterX;}  
+  public void setY(int y) {myCenterY = y;}  
+  public int getY() {return (int)myCenterY;}
+  public void setDirectionX(double x) {myDirectionX = x;}  
+  public double getDirectionX() {return myDirectionX;}  
+  public void setDirectionY(double y) {myDirectionY = y;} 
+  public double getDirectionY() {return myDirectionY;}
+  public void setPointDirection(int degrees) {myPointDirection = degrees;}  
+  public double getPointDirection() {return myPointDirection;}
+
+  public Bullet()
+  {
+  
+  }
+
+}
 
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
