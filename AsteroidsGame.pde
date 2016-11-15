@@ -16,9 +16,10 @@ public void setup()
   {
     night[i] = new Star();
   }
-  for(int i = 0; i < 10; i++)
+  for(int i = 0; i < 50; i++)
   {
     caspia.add(i, new Asteroids());
+
   }
   //caspia. add(chou);
   //caspia. add(new Asteroids(2));
@@ -48,6 +49,24 @@ public void draw()
     noStroke();
     caspia.get(i).move();
     caspia.get(i).show();
+    if(dist(bob.getX(),bob.getY(),caspia.get(i).getX(),caspia.get(i).getY()) < 20)
+      caspia.remove(i);
+    // if (bob.getX()+20 >= caspia.get(i).getX())
+    // {
+    //   caspia.remove(i);
+    // } 
+    // else if (bob.getX()-20 <= caspia.get(i).getX())
+    // {
+    //   caspia.remove(i);
+    // }
+    // else if (bob.getY()+20 >= caspia.get(i).getY())
+    // {
+    //   caspia.remove(i);
+    // }
+    // else if (bob.getY()-20 <= caspia.get(i).getY())
+    // {
+    //   caspia.remove(i);
+    // }
   }
 
   bob.move();
@@ -161,8 +180,8 @@ class Asteroids extends Floater
     yCorners= yS;
     myCenterX = (int)(Math.random()*width);
     myCenterY = (int)(Math.random()*height);
-    myDirectionX = (int)(Math.random()*10+1);
-    myDirectionY = (int)(Math.random()*10+1);
+    myDirectionX = (int)(Math.random()*10-5);
+    myDirectionY = (int)(Math.random()*10-5);
     myPointDirection = (int)(Math.random()*360);
     myColor = color(77, 255, 77);
 
@@ -175,7 +194,8 @@ class Asteroids extends Floater
 
 }
 
-class Bulllet extends SpaceShip
+/*
+class Bulllet extends Floater
 {
   private int fire;
   public void setX(int x) {myCenterX = x;}  
@@ -191,11 +211,11 @@ class Bulllet extends SpaceShip
 
   public Bullet()
   {
-  
+
   }
 
 }
-
+*/
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
   protected int corners;  //the number of corners, a triangular floater has 3   
