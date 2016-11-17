@@ -1,8 +1,9 @@
 //your variable declarations here
 SpaceShip bob;
 ArrayList <Asteroids> caspia;
-Asteroids chou;
+//Asteroids chou;
 Star[] night = new Star[500];
+ArrayList <Bullet> chou;
 
 public void setup() 
 {
@@ -10,13 +11,14 @@ public void setup()
   size(700, 700);
 
   caspia = new ArrayList <Asteroids>();
-  chou = new Asteroids();
+  chou = new ArrayList <Bullet>();
+  //chou = new Asteroids();
 
   for (int i = 0; i < night.length; i++)
   {
     night[i] = new Star();
   }
-  for(int i = 0; i < 50; i++)
+  for(int i = 0; i < 20; i++)
   {
     caspia.add(i, new Asteroids());
 
@@ -194,10 +196,9 @@ class Asteroids extends Floater
 
 }
 
-/*
-class Bulllet extends Floater
+
+class Bullet extends Floater
 {
-  private int fire;
   public void setX(int x) {myCenterX = x;}  
   public int getX() {return (int)myCenterX;}  
   public void setY(int y) {myCenterY = y;}  
@@ -209,13 +210,25 @@ class Bulllet extends Floater
   public void setPointDirection(int degrees) {myPointDirection = degrees;}  
   public double getPointDirection() {return myPointDirection;}
 
-  public Bullet()
+  public Bullet(SpaceShip theShip)
   {
+    myCenterX = bob.getX();
+    myCenterY = bob.getY();
+    myPointDirection = bob.getPointDirection() ;
+    double dRadians = myPointDirection*(Math.PI/180);
+    myDirectionX = 5*Math.cos(dRadians) + bob.getDirectionX();
+    myDirectionY = 5*Math.sin(dRadians) + bob.getDirectionY();
+    myColor = color(204, 255, 204);
 
   }
 
+  public void show() 
+  { 
+    ellipse((float)myCenterX, (float)myCenterX, 5, 5);
+  }
+
 }
-*/
+
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
   protected int corners;  //the number of corners, a triangular floater has 3   
