@@ -15,17 +15,35 @@ class Bullet extends Floater
   {
     myCenterX = theShip.getX();
     myCenterY = theShip.getY();
-    myPointDirection = bob.getPointDirection() ;
+    myPointDirection = theShip.getPointDirection() ;
     double dRadians = myPointDirection*(Math.PI/180);
-    myDirectionX = 5*Math.cos(dRadians) + bob.getDirectionX();
-    myDirectionY = 5*Math.sin(dRadians) + bob.getDirectionY();
-    myColor = color(204, 255, 204);
+    myDirectionX = 5*Math.cos(dRadians) + theShip.getDirectionX();
+    myDirectionY = 5*Math.sin(dRadians) + theShip.getDirectionY();
+    myColor = color(225, 255, 204);
 
   }
 
   public void show() 
   { 
-    ellipse((float)myCenterX, (float)myCenterX, 5, 5);
+    noStroke();
+    fill(myColor);
+    ellipse((float)myCenterX, (float)myCenterY, 5, 5);
   }
+
+  // public void move()
+  // {
+  //   for (int s = 0; s < kat.size(); s++)
+  //     {
+  //       if(kat.get(s).getX() > width)
+  //         {
+  //           kat.remove(s);
+  //         }
+  //       else if(kat.get(s).getY() > height)
+  //         {
+  //           kat.remove(s);
+  //         }
+        
+  //     }
+  // }
 
 }

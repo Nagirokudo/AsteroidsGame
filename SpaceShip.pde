@@ -16,8 +16,8 @@ class SpaceShip extends Floater
   SpaceShip()
   {
     corners= 8;
-    int[] xS = {0, 2, 7, 2, 0, -2, -14, -2};
-    int[] yS = {7, 4, 0, -4, -7, -4, 0, 4};
+    int[] xS = {0, 4, 14, 4, 0, -4, -28, -4};
+    int[] yS = {14, 8, 0, -8, -14, -8, 0, 8};
     xCorners = xS;
     yCorners= yS;
     myCenterX = width/2;
