@@ -35,21 +35,21 @@ class Bullet extends Floater
     myCenterX += myDirectionX;    
     myCenterY += myDirectionY;     
 
-    if(myCenterX > width)
-    {     
-      kat.remove(this);    
-    }    
-    else if (myCenterX <0)
-    {     
-      kat.remove(this);    
-    }    
-    if(myCenterY > height)
-    {    
-      kat.remove(this);    
-    }   
-    else if (myCenterY < 0)
-    {     
-      kat.remove(this);    
-    }   
+    // if(myCenterX > width)
+    // {     
+    //   kat.remove(this);    
+    // }    
+    // else if (myCenterX <0)
+    // {     
+    //   kat.remove(this);    
+    // }    
+    // if(myCenterY > height)
+    // {    
+    //   kat.remove(this);    
+    // }   
+    // else if (myCenterY < 0)
+    // {     
+    //   kat.remove(this);    
+    // }   
   }   
 }
