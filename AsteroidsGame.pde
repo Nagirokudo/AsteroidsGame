@@ -2,7 +2,7 @@
 SpaceShip bob;
 ArrayList <Asteroids> caspia;
 Star[] night = new Star[500];
-ArrayList <Bullet> kat;
+ArrayList <Bullet> kat= new ArrayList <Bullet>();
 // Bullet chou;
 public void setup() 
 {
@@ -23,7 +23,7 @@ public void setup()
 
   }
   bob = new SpaceShip();
-  kat = new ArrayList <Bullet>();
+  //kat = new ArrayList <Bullet>();
   // for(int i = 0; i < kat.size(); i++)
   // {
   //   kat.add(i, new Bullet());
@@ -54,11 +54,12 @@ public void draw()
   }
   // chou.move();
   // chou.show();
-  for (int i = 0; i < kat.size(); i++)
+  for (int j = 0; j < kat.size(); j++)
   {
     noStroke();
-    kat.get(i).move();
-    kat.get(i).show();
+    
+    kat.get(j).show();
+    kat.get(j).move();
   }
 
   for (int i = 0; i < kat.size(); i++)
